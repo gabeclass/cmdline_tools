@@ -45,8 +45,9 @@ and `find` will substitute each file/folder it locates earlier in turn.
 
 ### Example/
 
-* Make three directories within your home folder called `dirtokill1`, `dirtokill2`, `dirtokill3`
-* Let's write a `find` one-liner that would find just these folders and delete them.
+* Make three directories within your home folder called `dirtokill1`, `dirtokill2`, `dirtokill3` (play golf! -- Can you do this in one line?)
+* Make a directory called `temp` in your home folder, and inside that directory, put three files also called `dirtokill1`, `dirtokill2`, `dirtokill3`.
+* Write a `find` one-liner that, departing from your home directory, would find just the aformentioned *folders* and delete them while leaving the eponymous *files* intact.
 
 
 
