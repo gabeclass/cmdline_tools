@@ -21,6 +21,11 @@ for how to do that.
 [https://princetonuniversity.github.io/hpc_beginning_workshop/](https://princetonuniversity.github.io/hpc_beginning_workshop/)
 -->
 
+## Instructions for setting up SSH keys (passwordless SSH)
+
+[Set up SSH keys](https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys-on-ubuntu-1604)
+
+
 ## **WARNINGS!**
 
 
@@ -32,16 +37,6 @@ for how to do that.
   interpret anything for you -- be precise).
 
 
-## For one of our exercises
-
-The URL below takes you to a plain text version of the US Declaration
-of Independence:
-
-[https://www.constitution.org/usdeclar.txt](https://www.constitution.org/usdeclar.txt)
-
-## Instructions for setting up SSH keys (passwordless SSH)
-
-[Set up SSH keys](https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys-on-ubuntu-1604)
 
 ## Google Survey
 Near the end of the workshop, you'll be asked to fill out a brief (3-5
