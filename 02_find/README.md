@@ -25,9 +25,6 @@ followed by a pattern **enclosed in single quotes!** (so the shell won't prematu
 
 * The `-regex` flag -- more on this shortly
 
-### Hidden files?
-
-* Use the `-a` flag (just like with `ls`)
 
 ## Exercises
 
