@@ -92,5 +92,4 @@ the 'Dinky' theme because its seemed apropros of Princeton. To run it, just run
 ## Authorship
 
 This workshop was prepared by Gabe Perez-Giz. It incorporates some
-elements from an earlier incarnation of this workshop by Ben Hicks and
-borrows some pieces from Jonathan Halverson.
+elements from an earlier incarnation of this workshop by Ben Hicks.
