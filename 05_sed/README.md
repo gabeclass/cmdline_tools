@@ -20,7 +20,7 @@ Google returns and to cobble things together, enough `sed` literacy to know what
 
 * Show every line that contains 'beauty' (this is a `grep` move)  (Should we ignore lines from the header/preamble?  How could we do this?)
 
-* Find every line that contains 'beauty' and, if it's intended, unindent it, and save just those lines to a file `beautylines.txt`.
+* Find every line that contains 'beauty' and, if it's indented, unindent it, and save just those lines to a file `beautylines.txt`.
 
 * The last two lines of every sonnet are indented.  Let's produce a full copy of the collection in which that isn't true.
 
