@@ -28,8 +28,33 @@ followed by a pattern **enclosed in single quotes!** (so the shell won't prematu
 
 ## Exercises
 
-* Find every folder on Adroit called `.ssh`
-* Find every file on Adroit whose name starts with `.bash`  (there are a lot) -- you may want to pipe output to `less`
+Make a directory called `findpractice` in your home folder.  `cd` into that directory and execute the following commands:
+
+```shell
+touch readme.txt
+mkdir src
+mkdir lib
+touch src/main.py
+touch src/main.pyc
+touch lib/other.py
+touch lib/other.pyc
+touch lib/stuff.py
+touch lib/foo.py
+touch lib/foo.pyc
+```
+
+Starting from the `findpractice` folder, write `find` commands that will:
+* Find only those files with the `.py` extension
+* Find only those files *without* the `.py` extension
+* Delete only those files with the `.py` extension
+* Delete only those files *without* the `.py` extension
+
+**Useful `find` flags for this:**
+`-name`
+`-not`
+`-delete`
+
+Now add a file called `watchout.py` in the `findpractice` folder (use `touch`).  Repeat the above.  Do the commands you used previously still work?
 
 ## Run commands on the files you find
 
