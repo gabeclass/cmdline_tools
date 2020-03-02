@@ -51,7 +51,15 @@ cut
 
 ## tee
 
-Lets you redirect while still sending output to `stdout`:
+`tee` takes input from `stdin` and echoes it both to `stdout` *and* to any files listed as arguments.  For instance, try typing:
+```shell
+$ tee teetest.txt
+```
+What happens?  Why?   What if you wanted `tee` to take its input from, say, a file called `teeinput.txt`?
+
+
+
+In a pipeline, `tee` lets you redirect to a file while also continuing to send output to `stdout`:
 ```shell
 $ cat file1 file2 | head | tee file1and2.txt
 ```
