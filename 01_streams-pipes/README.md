@@ -70,6 +70,16 @@ What happens?
 $ curl <url>
 ```
 
+### Exercise: generate files with lots of random text
+
+The website [http://metaphorpsum.com/](http://metaphorpsum.com/) has an API that lets you generate random sentences and paragraphs from a URL, as follows:
+```shell
+http://metaphorpsum.com/sentences/4   #Four random English sentences
+http://metaphorpsum.com/paragraphs/3  #Three random English paragraphs, separated by newlines
+```
+The URL will *not* output a terminal newline.
+
+**Task** -- using `curl`, create 3 files in your home directory called `haystack???` (I will tell you what to put in place of the `???`s for each file) and fill each one with 4 paragraphs of random text, and make sure that each file ends with a newline.
 
 ## `wget` can send output to `stdout`
 
