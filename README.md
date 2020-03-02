@@ -41,7 +41,7 @@ for how to do that.
 ## Google Survey
 Near the end of the workshop, you'll be asked to fill out a brief (3-5
 mins) survey. When the time comes, please
-[click here](https://forms.gle/WhoAcb1J82XVTqq38).
+[click here](https://forms.gle/w8vacpUgkmagth6e7).
 
 <!--
 ## Resources for further study
