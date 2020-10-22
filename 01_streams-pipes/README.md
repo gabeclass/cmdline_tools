@@ -5,6 +5,8 @@ Linux has 3 core *file streams*:
 * `stdout` --> defaults to screen (abbrev 1)
 * `stderr` --> defaults to screen (abbrev 2)
 
+![Standard file streams](../images/Stdstreams_pubdomain.svg)
+
 But any of these "hoses" can be redirected to point to a file (this is
 possible because, under the hood, Linux represents *everything* to the
 user -- even hardware like the monitor or keyboard -- as if it were a
@@ -36,6 +38,8 @@ For example:
 $ cat file1 file2 | head | tail
 ```
 
+![Pipeline](../images/Pipeline_pubdomain.svg)
+
 
 ## Some useful text filtering utilities that work this way
 
@@ -49,56 +53,75 @@ comm
 cut
 ```
 
-## tee
+## `curl` and `wget` can both send output to `stdout`
 
-`tee` takes input from `stdin` and echoes it both to `stdout` *and* to any files listed as arguments.  For instance, try typing:
-```shell
-$ tee teetest.txt
-```
-What happens?  Why?   What if you wanted `tee` to take its input from, say, a file called `teeinput.txt`?
-
-
-
-In a pipeline, `tee` lets you redirect to a file while also continuing to send output to `stdout`:
-```shell
-$ cat file1 file2 | head | tee file1and2.txt
-```
-What happens?
-
-## `curl` will grab the file at a URL and send it to `stdout` by default
-```shell
-$ curl <url>
-```
-
-### Exercise: generate files with lots of random text
-
-The website [http://metaphorpsum.com/](http://metaphorpsum.com/) has an API that lets you generate random sentences and paragraphs from a URL, as follows:
-```shell
-http://metaphorpsum.com/sentences/4   #Four random English sentences
-http://metaphorpsum.com/paragraphs/3  #Three random English paragraphs, separated by newlines
-```
-The URL will *not* output a terminal newline.
-
-**Task** -- using `curl`, create 3 files in your home directory called `haystack???` (I will tell you what to put in place of the `???`s for each file) and fill each one with 4 paragraphs of random text, and make sure that each file ends with a newline.
-
-## `wget` can send output to `stdout`
-
-`wget` is not installed on Macs by default.  It defaults to sending output to a file, but you can redirect it to `stdout`:
+`curl` does it by default.  To see how to make `wget` do so:
 ```shell
 $ man wget
-$ wget -q -O - <URL>
 ```
-`wget` normally gives you lots of output, including a progress bar.  `-q` suppresses this extra output.
 
-The `-O` flag tells `wget` where to send output.  That flag expects a filename argument.  When we give `-` as the "filename", `wget` sends output
-to `stdout` (**NB:** -- most text filtering utilities treat `-` as referring to `stdin`; `wget` is anomalous in this respect)
+## You can pipe into `less`
 
-## Declaration of Independence pipeline exercise
+This is useful for examining the results of a pipeline as you build it
+(just pipe into `less` as you go, examine the output, then remove the
+less and add the next stage of the pipeline).
 
-This URL [https://www.constitution.org/usdeclar.txt](https://www.constitution.org/usdeclar.txt) contains a plain-text version of the US
-Declaration of Independence.  Create a *single* pipeline that gives a list of the top 20 most frequently occurring words in that document, along with their
-word counts.  Ignore case, and ignore punctuation of any kind.  Your output should go **both** to the screen **and** to file called `us_decind_top20.txt`.
+## Redirecting both to a stream *and* a file?
+
+Use the `tee` command:
+
+```shell
+$ <cmd1> | tee file1.txt file2.txt ... fileN.txt
+# Sends contents of cmd1's stdout *both* to screen *and* to files file1.txt ... fileN.txt
+```
+
+![Visualizing tee](../images/Tee_ccbysa4.0_usersven.svg)
+
+To make `tee` append to rather than clobber (overwrite) the file(s) it
+writes to, use the `-a` option:
+```shell
+$ <cmd1> | tee -a file1.txt
+# Sends contents of cmd1's stdout *both* to screen *and* append output to file1.txt
+```
 
 
+## Making the output of Command 1 the *arguments* of Command 2
 
+Some commands do not accept input from `stdin`.  For instance, `echo`
+does not (at least not by default):
+```shell
+$ echo Hello | echo
+# Nothing comes out
+```
+
+To get the 2nd `echo` to say "hello", we need the output of the 1st
+`echo` to become the *argument* of the 2nd `echo`.  The utility that
+accomplishes this is `xargs` :
+```shell
+$ echo Hello | xargs echo
+$ echo Hello | xargs   # also works, b/c `echo` is default cmd for xargs
+$ echo helloworld.jpg | xargs touch
+# What happens?
+```
+
+Really, `xargs` builds new command line(s) based on whatever it gets
+via `stdin`.  Let's check out its manpage (and note that, when you
+don't tell `xargs` what command to use, it inserts `echo` as the
+default).
+
+A fuller but brief tutorial on usage of `xargs` can be found
+[here](https://linuxize.com/post/linux-xargs-command/).
+
+
+## Exercise: Word-frequency in US Declaration of Independence
+
+Using only the utilities we've seen so far, write a *single pipeline*
+that will ultimately output (both to `stdout` *and* to a file called
+`usdechistogram.txt`) the top 10 words, by frequency (and ignoring
+case) in the US Declaration of Independence, along with the number of
+times each occurs.
+
+This group exercise will require a lot of reading of `man` pages and
+iterative trial and error, and it brings together most (or all) of the
+skills we've learned so far.  Go for it!
 
