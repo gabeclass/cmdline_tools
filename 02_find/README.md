@@ -72,4 +72,8 @@ and `find` will substitute each file/folder it locates earlier in turn.
 * Write a `find` one-liner that, departing from your home directory, would find just the aformentioned *folders* and delete them while leaving the eponymous *files* intact.
 
 
+## Exercise
 
+How would you copy 1 file to multiple directories, in 1 line?  Try to
+think of a way to do this with `find` (HINT: consider the `-exec`
+flag)
