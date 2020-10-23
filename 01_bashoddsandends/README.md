@@ -19,7 +19,7 @@ with semicolons (if the `do` part has many statements, put each on its
 own line, or its own semicolon-separated chunk of your single line):
 
 ``` shell
-$ for $j in *
+$ for j in *
 > do
 > echo $j is a file
 > <other statements>
@@ -27,7 +27,7 @@ $ for $j in *
 ```
 OR
 ``` shell
-$ for $j in *; do echo $j is a file; <other statements>; done
+$ for j in *; do echo $j is a file; <other statements>; done
 ```
 
 ## Exercise
